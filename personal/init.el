@@ -1,5 +1,5 @@
 ;; load theme
-(load-theme 'gandalf t)
+;; (load-theme 'gandalf t)
 
 ;; setting font
 (set-frame-font "Source Code Pro 15" nil t)
@@ -10,6 +10,10 @@
 ;;(add-hook 'prelude-prog-mode-hook 'prelude-turn-off-whitespace t)
 ;;(add-hook 'prelude-prog-mode-hook 'turn-off-flyspell t)
 (setq prelude-whitespace nil)
+
+;; multi term
+(prelude-require-package 'multi-term)
+(setq multi-term-program "/bin/zsh")
 
 (require 'cider)
 (cider-repl-toggle-pretty-printing)
@@ -62,6 +66,10 @@
 
 
 ;; org mode
+
+;; loading the latest version of org
+(add-to-list 'load-path "~/repos/org-mode/org-loaddefs.el")
+
 ;;adding backend for github markdown
 (prelude-require-package 'ox-gfm)
 (custom-set-variables
